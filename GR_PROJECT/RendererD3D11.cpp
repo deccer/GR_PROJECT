@@ -76,7 +76,7 @@ bool RendererD3D11::InitDirect3D()
 bool RendererD3D11::InitSwapchain()
 {
 	int32_t width, height;
-	glfwGetWindowSize(_window, &width, &height);
+	glfwGetFramebufferSize(_window, &width, &height);
 
 	DXGI_SWAP_CHAIN_DESC swapchainDesc = {
 		.BufferDesc = {
@@ -114,7 +114,7 @@ bool RendererD3D11::InitGBuffers()
 	swapchainBuffer->Release();
 
 	int32_t width, height;
-	glfwGetWindowSize(_window, &width, &height);
+	glfwGetFramebufferSize(_window, &width, &height);
 
 	D3D11_TEXTURE2D_DESC depthStencilBufferDesc = {
 		.Width = static_cast<uint32_t>(width),
